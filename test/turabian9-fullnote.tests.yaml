@@ -1,0 +1,21 @@
+- describe: "citations tests"
+  tests:
+    # - it: "A Simple Citation"
+      # single: { id: "ID" }
+      # # you can use > to join multiple lines with spaces if a line gets long
+      # expect: "Result"
+
+
+
+
+
+  
+ 
+- describe: "bibliography tests"
+  tests:
+    # - it: "Simple Book"
+      # bibliography: 
+      # - [{ id: "ID" }]
+      # expect:
+      # - "Result"
+   

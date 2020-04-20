@@ -1,2 +1,2 @@
 # csl-turabian9-note
-Tests for Turabian 9th edition CSL development
+Tests for Turabian 9th edition CSL development (fullnote bibliography)
