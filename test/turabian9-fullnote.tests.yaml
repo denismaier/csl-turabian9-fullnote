@@ -1,21 +1,175 @@
 - describe: "citations tests"
   tests:
-    # - it: "A Simple Citation"
-      # single: { id: "ID" }
-      # # you can use > to join multiple lines with spaces if a line gets long
-      # expect: "Result"
+    - it: "A Simple Book Citation"
+      single: { id: "kitamuraSeparation2017" }
+      # you can use > to join multiple lines with spaces if a line gets long
+      expect: "Katie Kitamura, <i>A Separation</i> (New York: Riverhead Books, 2017)."
 
 
-
-
-
-  
- 
 - describe: "bibliography tests"
   tests:
-    # - it: "Simple Book"
+    - it: "Simple Book"
+      bibliography: 
+      - [{ id: "kitamuraSeparation2017" }]
+      expect:
+      - "Kitamura, Katie. <i>A Separation</i>. New York: Riverhead Books, 2017."
+      
+    - it: "Multi-author book"
+      bibliography: 
+      - [{ id: "sasslerCohabitationNationGender2017" }]
+      expect:
+      - "Sassler, Sharon, and Amanda Jayne Miller. <i>Cohabitation Nation: Gender, Class, and the Remaking of Relationships</i>. Oakland: University of California Press, 2017."
+      
+    - it: "Chapter in edited book"
+      bibliography: 
+      - [{ id: "rowlandsonNarrativeMyCaptivity2016" }]
+      expect:
+      - "Rowlandson, Mary. “The Narrative of My Captivity.” In <i>The Making of the American Essay</i>, edited by John D’Agata, 19–56. Minneapolis: Graywolf Press, 2016."
+    
+    - it: "Edited Volume as a whole"
+      bibliography: 
+      - [{ id: "dagataMakingAmericanEssay2016" }]
+      expect:
+      - "D’Agata, John, ed. <i>The Making of the American Essay</i>. Minneapolis: Graywolf Press, 2016."
+    
+    - it: "Translated Book"
+      bibliography: 
+      - [{ id: "lahiriOtherWords2016" }]
+      expect:
+      - "Lahiri, Jhumpa. <i>In Other Words</i>. Translated by Ann Goldstein. New York: Alfred A. Knopf, 2016."    
+
+    - it: "E-Book"
+      bibliography: 
+      - [{ id: "austenPridePrejudice2007" }]
+      expect:
+      - "Austen, Jane. <i>Pride and Prejudice</i>. New York: Penguin Classics, 2007. Kindle."
+
+    - it: "E-Book with URL"
+      bibliography: 
+      - [{ id: "dostoyevskyCrimePunishment1917" }]
+      expect:
+      - "Dostoevsky, Fyodor. <i>Crime and Punishment</i>. Translated by Constance Garnett, edited by William Allan Neilson. New York: P. F. Collier &#38; Son, 1917. https://archive.org/details/crimepunishment00dostuoft."
+      # Editor and translator in wrong order
+      # Also: In CMoS it's: Translated by Constance Garnett. Edited by William Allan Neilson
+      
+    - it: "E-Book 3"
+      bibliography: 
+      - [{ id: "schlosserFastFoodNation2001" }]
+      expect:
+      - "Schlosser, Eric. <i>Fast Food Nation: The Dark Side of the American Meal</i>. Boston: Houghton Mifflin, 2001. ProQuest Ebrary."
+
+    - it: "Thesis"
+      bibliography: 
+      - [{ id: "navarro-garciaIntegratingSocialJustice2016" }]
+      expect:
+      - "Navarro-Garcia, Guadalupe. “Integrating Social Justice Values in Educational Leadership: A Study of African American and Black University Presidents.” PhD diss., University of California, Los Angeles, 2016. ProQuest Dissertations &#38; Theses Global."
+      # No publication place in CMoS
+
+    
+    - it: "Simple journal article with DOI"
+      bibliography: 
+      - [{ id: "perezMaterialMoralityLogic2017" }]
+      expect:
+      - "Pérez, Ashley Hope. “Material Morality and the Logic of Degrees in Diderot’s <i>Le neveu de Rameau</i>.” <i>Modern Philology</i> 114, no. 4 (May 2017): 872–98. https://doi.org/10.1086/689836."
+
+    - it: "Journal article from Database"
+      bibliography: 
+      - [{ id: "lasalleConundrumStoryReading2017" }]
+      expect:
+      - "LaSalle, Peter. “Conundrum: A Story about Reading.” <i>New England Review</i> 38, no. 1 (2017): 95–109. Project MUSE."
+
+    - it: "Journal article with multiple authors and DOI"
+      bibliography: 
+      - [{ id: "kengExpandingCollegeAccess2017" }]
+      expect:
+      - "Keng, Shao-Hsun, Chun-Hung Lin, and Peter F. Orazem. “Expanding College Access in Taiwan, 1978–2014: Effects on Graduate Quality and Income Inequality.” <i>Journal of Human Capital</i> 11, no. 1 (Spring 2017): 1–34. https://doi.org/10.1086/690235."
+
+    - it: "Journal article with 7 authors"
+      bibliography: 
+      - [{ id: "weberResistGloballyInfect2017" }]
+      expect:
+      - "Weber, Jesse N., Martin Kalbe, Kum Chuan Shim, Noémie I. Erin, Natalie C. Steinel, Lei Ma, and Daniel I. Bolnick. “Resist Globally, Infect Locally: A Transcontinental Test of Adaptation by Stickleback and Their Tapeworm Parasite.” <i>American Naturalist</i> 189, no. 1 (January 2017): 43–57. https://doi.org/10.1086/689597."
+
+
+    - it: "Magazine article"
+      bibliography: 
+      - [{ id: "cunninghamYouDonUnderstand2017" }]
+      expect:
+      - "Cunningham, Vinson. “You Don’t Understand: John McWhorter Makes His Case for Black English.” <i>New Yorker</i>, May 15, 2017."
+
+    - it: "Magazine article with URL"
+      bibliography: 
+      - [{ id: "lindMovingCanadaExplained2016" }]
+      expect:
+      - "Lind, Dara. “Moving to Canada, Explained.” <i>Vox</i>, September 15, 2016. https://www.vox.com/2016/5/9/11608830/move-to-canada-how."
+
+    - it: "Newspaper article with URL"
+      bibliography: 
+      - [{ id: "manjooSnapMakesBet2017" }]
+      expect:
+      - "Manjoo, Farhad. “Snap Makes a Bet on the Cultural Supremacy of the Camera.” <i>New York Times</i>, March 8, 2017. https://www.nytimes.com/2017/03/08/technology/snap-makes-a-bet-on-the-cultural-supremacy-of-the-camera.html."
+
+    - it: "Newspaper consulted in database"
+      bibliography: 
+      - [{ id: "pegoraroAppleIPhoneSleek2007" }]
+      expect:
+      - "Pegoraro, Rob. “Apple’s iPhone Is Sleek, Smart and Simple.” <i>Washington Post</i>, July 5, 2007. LexisNexis Academic."
+      # How to prevent title-casing of iPhone here?      
+
+    - it: "Newspaper article with URL"
+      bibliography: 
+      - [{ id: "anderssenEyesGeneration2016" }]
+      expect:
+      - "Anderssen, Erin. “Through the Eyes of Generation Z.” <i>Globe and Mail</i> (Toronto), June 25, 2016. https://www.theglobeandmail.com/news/national/through-the-eyes-of-generation-z/article30571914/."
+      # Place not included, but should be even in CMoS
+      
+    - it: "Book review"
+      bibliography: 
+      - [{ id: "eberstadt2017" }]
+      expect:
+      - "Eberstadt, Fernanda. “Gone Guy: A Writer Leaves His Wife, Then Disappears in Greece.” Review of <i>A Separation</i>, by Katie Kitamura. New York Times, February 15, 2017. https://www.nytimes.com/2017/02/15/books/review/separation-katie-kitamura.html."
+      # How to do this properly with CMoS CSL style?
+      # Reviews are complicated.
+      # Could we test for `reviewed-title`?
+      
+    - it: "Website"
+      bibliography: 
+      - [{ id: "columbiauniversityHistory" }]
+      expect:
+      - "Columbia University. “History.” Accessed May 15, 2017. https://www.columbia.edu/content/history.html."      
+
+    - it: "Website with last modified date"
+      bibliography: 
+      - [{ id: "privacytermsgooglePrivacyPolicy2017" }]
+      expect:
+      - "Google. “Privacy Policy.” Privacy & Terms. Last modified April 17, 2017. https://www.google.com/policies/privacy/."
+      # How can we split the author in two parts?
+      
+
+    - it: "Audiovisual 1"
+      bibliography: 
+      - [{ id: "josephSorry2016" }]
+      expect:
+      - "Beyoncé. “Sorry.” Directed by Kahlil Joseph and Beyoncé Knowles. June 22, 2016. Music video, 4:25. https://youtu.be/QxsmWxxouIM."      
+
+    - it: "Audiovisual 2"
+      bibliography: 
+      - [{ id: "stamperFBombPhotobombHow2017" }]
+      expect:
+      - "Stamper, Kory. “From ‘F-Bomb’ to ‘Photobomb,’ How the Dictionary Keeps Up with English.” Interview by Terry Gross. Fresh Air, NPR, April 19, 2017. Audio, 35:25. http://www.npr.org/2017/04/19/524618639/from-f-bomb-to-photobomb-how-the-dictionary-keeps-up-with-english."      
+
+    - it: "Social Media"
+      bibliography: 
+      - [{ id: "chicagomanualofstyleWorldReadySingular2015" }]
+      expect:
+      - "Chicago Manual of Style. “Is the world ready for singular they? We thought so back in 1993.” Facebook, April 17, 2015. https://www.facebook.com/ChicagoManual/posts/10152906193679151."
+      # 
+      # Is it possible to disable title case here? (without using fake locales)
+      # Also, according to CMoS, Facebook should not be in italics.
+
+    # - it: ""
       # bibliography: 
-      # - [{ id: "ID" }]
+      # - [{ id: "" }]
       # expect:
-      # - "Result"
-   
+      # - ""              
+      
